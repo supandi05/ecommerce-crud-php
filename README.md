@@ -1,2 +1,2 @@
 # Aplikasi-Ecommerce-PHP
- Tugas Mata Kuiah E-Commerce
+ Tugas Mata Kuliah E-Commerce Semester VIII
