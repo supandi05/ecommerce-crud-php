@@ -1,17 +1,22 @@
-<?php
-	session_start();
-	include("db.php");
-	$Username = mysqli_real_escape_string($con, $_POST['Username']);
-	$Password = mysqli_real_escape_string($con, $_POST['Password']);
+<?php 
 
-	$h = mysqli_query($con, "select * from user where Username = '$Username' and Password = '$Password'");
+session_start();
+include 'db.php';
+ 
+$Email = $_POST['Email'];
+$Password = md5($_POST['Password']);
 
-	if(mysqli_num_rows($h) == 1){
-		$_SESSION["Username"] = $Username;
-		header("Location: home.php");
-	} else {
-		header("Location: login.php");
-	}
+$data = mysqli_query($con, "select * from user where email = '$Email' and Password = '$Password'");
+
+$cek = mysqli_num_rows($data);
+ 
+if($cek > 0){
+	$_SESSION['Email'] = $Email;
+	$_SESSION['status'] = "login";
+	header("location: ./admin/index.php");
+}else{
+	header("location: login.php?pesan=gagal");
+}
 
 
 

@@ -3,5 +3,5 @@ NIM : A2.1900174
 
 
 user login
-user : admin
-pass : admin
+user : admin@admin.com
+pass : Admin

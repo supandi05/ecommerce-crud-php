@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Mar 2022 pada 06.58
+-- Waktu pembuatan: 30 Bulan Mei 2022 pada 08.00
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.7
 
@@ -44,14 +44,17 @@ CREATE TABLE `produk` (
 INSERT INTO `produk` (`Kode`, `Nama`, `Merk`, `Harga`, `Deskripsi`, `Kategori`, `Foto`) VALUES
 ('M1', 'Minuman Mineral Aqua 600ml', 'Aqua', '5000', 'Aqua Botol 600 Ml', 'MINUMAN', 'aqua.png'),
 ('M2', 'Pocari Sweat 500 ml', 'Pocari Sweat', '7000', 'Isi paket terdiri dari 5 Pcs Pocari Sweat 500 ml\r\n', 'MINUMAN', 'pocari.png'),
-('M3', 'Ultra Susu Uht Steril Slim Plain 200Ml', 'Ultra Jaya', '5000', 'Ultra milk susu UHT full cream plain tetrapack 200mL \r\n\r\n\r\nCARA PENGGUNAAN :\r\nKocok dahulu sebelum dibuka. Segera habiskan setelah dibuka.\r\n\r\nKOMPOSISI :\r\nSusu sapi segar, penstabil nabati.\r\n\r\nTAKARAN PER KEMASAN :\r\nSajian per kemasan : 1\r\n\r\nTAKARAN PER SERVING :\r\nEnergi total 120kkal, energi dari lemak 50kkal. % AKG: Lemak total 6g, lemak jenuh 3g, kolesterol 15mg, protein 6g, karbohidrat total 10g, natrium 40mg, kalium 390mg. Vitamin A 20%, vitamin C 8%, vitamin D3 20%, vitamin E 8%, vitamin K 6%, vitamin B1 20%, vitamin B2 20%, vitamin B3 10%, vitamin B5 8%, vitamin B6 15%, vitamin B12 20%, kalsium 25%, zat besi 2%, Iodium 6%, zink 10%, magnesium 8%, fosfor 30%, selenium 10%\r\n\r\nTAKARAN SAJI :\r\nTakaran saji : 200mL', 'MINUMAN', 'susuultra.png'),
+('M3', 'Ultra Susu Uht Steril Slim Plain 200Ml', 'Ultra Jaya', '5000', 'Susu UHT 200Ml', 'MINUMAN', 'susuultra.png'),
 ('M4', 'ABC Special Grade Cocopandan 485 ml', 'ABC', '21900', 'ABC Special Grade Cocopandan 485 ml', 'MINUMAN', 'abc.png'),
 ('M5', 'You C1000 Health Drink Vitamin Orange 140Ml', 'Djojonegoro C-100', '6000', 'You C1000 Health Drink Vitamin Orange 140Ml', 'MINUMAN', 'c1000.png'),
-('MR1', 'BISKUIT BENG BENG CHOCOLATE', 'BENG BENG', '2000', 'BISKUIT BENG BENG CHOCOLATE COKELAT CRISP WAFER 1 BOX ISI 17 PCS SNACK MAKANAN RINGAN COKLAT', 'MAKANAN RINGAN', 'bengbeng.png'),
+('MR1', 'Biskuit Beng Beng Chocolate', 'Mayora', '2000', 'Biskuit Beng Beng Chocolate', 'MAKANAN RINGAN', 'bengbeng.png'),
 ('MR2', 'Nabati Richeese Richoco Rolls', 'Richeese', '500', 'Nabati Richeese Richoco Rolls Snack Jajan Hemat 8gr', 'MAKANAN RINGAN', 'nabati.png'),
-('MR3', 'Gery Snack & Sereal', 'GARUDA FOOD', '600', 'Gery Snack & Sereal 8gr dan gery bischoc 7gr', 'MAKANAN RINGAN', 'gery.png'),
+('MR3', 'Gery Snack & Sereal', 'Garuda Food', '600', 'Gery Snack & Sereal 8gr dan gery bischoc 7gr', 'MAKANAN RINGAN', 'gery.png'),
 ('MR4', 'Oishi Snack Sponge Crunch Chocolate 28G', 'Liwayway', '2500', 'Oishi Snack Sponge Crunch Chocolate', 'MAKANAN RINGAN', 'sponge.png'),
-('MR5', 'Better sandwich biscuit Fun Bites isi 4', 'Mayora', '2500', 'Better sandwich biscuit Fun Bites isi 4', 'MAKANAN', 'better.png');
+('MR5', 'Better sandwich biscuit Fun Bites isi 4', 'Mayora', '2500', 'Better sandwich biscuit Fun Bites isi 4', 'MAKANAN', 'better.png'),
+('S1', 'Telur Ayam 1Kg', 'Ayam', '26000', 'Telur ayam\r\n1/4Kg Isi 4 Telur\r\n1/2Kg Isi 8 Telur\r\n1/2Kg Isi 9 Telur\r\n1 Kg Isi 16 Telur\r\n1 Kg Isi 17 Telur', 'SEMBAKO', 'telur.png'),
+('S2', 'Minyak Goreng Fortune 2L', 'Fortune', '52000', 'Fortune isi 2 Liter', 'SEMBAKO', 'fortune.png'),
+('S3', 'Beras Sania 1Kg', 'Sania', '13000', 'Beras Sania Premium, beras pulen teknologi jepang', 'SEMBAKO', 'beras.png');
 
 -- --------------------------------------------------------
 
@@ -60,8 +63,10 @@ INSERT INTO `produk` (`Kode`, `Nama`, `Merk`, `Harga`, `Deskripsi`, `Kategori`, 
 --
 
 CREATE TABLE `user` (
+  `kode` int(10) NOT NULL,
   `Username` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `Bagian` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -69,9 +74,9 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`Username`, `Password`, `Bagian`) VALUES
-('admin', 'admin', 'Administrator'),
-('supandi', 'supandi', 'Administrator');
+INSERT INTO `user` (`kode`, `Username`, `Password`, `email`, `Bagian`) VALUES
+(1, 'admin', 'e3afed0047b08059d0fada10f400c1e5', 'admin@admin.com', 'Administrator'),
+(2, 'supandi', '4da08dba094eed021ce24b6957212438', 'supandi@kaiapay.co.id', 'Administrator');
 
 --
 -- Indexes for dumped tables
@@ -82,6 +87,22 @@ INSERT INTO `user` (`Username`, `Password`, `Bagian`) VALUES
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`Kode`);
+
+--
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`kode`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `kode` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
