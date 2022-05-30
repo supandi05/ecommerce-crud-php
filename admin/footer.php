@@ -2,6 +2,7 @@
                 <p>&copy; Vincent Gabriel 2013</p>
             </footer>
         </div>
+        <!--/.fluid-container-->
         <script src="../assets/bootstrap-admin/vendors/jquery-1.9.1.min.js"></script>
         <script src="../assets/bootstrap-admin/bootstrap/js/bootstrap.min.js"></script>
         <script src="../assets/bootstrap-admin/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
